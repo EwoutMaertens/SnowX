@@ -20,8 +20,8 @@ def test_serialize_domain_instructor():
     expected_json = f"""
         {{
             "instructor_id": "{instructor_id}",
-            "skill_levels": "{skill_levels}",
-            "languages": "{json.dumps(languages)}"
+            "skill_levels": {skill_levels},
+            "languages": {json.dumps([language.name for language in languages])}
         }}
     """
 

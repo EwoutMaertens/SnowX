@@ -29,7 +29,7 @@ class TestInstructor(unittest.TestCase):
 		instructor_dict = {
 			"instructor_id": self.instructor_id,
 			"skill_levels": self.skill_levels,
-			"languages": self.languages
+			"languages": [language.name for language in self.languages]
 		}
 
 		# Act
@@ -46,7 +46,7 @@ class TestInstructor(unittest.TestCase):
 		instructor_dict = {
 			"instructor_id": self.instructor_id,
 			"skill_levels": self.skill_levels,
-			"languages": self.languages
+			"languages": [language.name for language in self.languages]
 		}
 
 		# Act

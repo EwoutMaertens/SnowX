@@ -5,8 +5,8 @@ class InstructorJsonEncoder(json.JSONEncoder):
         try:
             to_serialize = {
                 "instructor_id": str(o.instructor_id),
-                "skill_levels": json.dumps(o.skill_levels),
-                "languages": json.dumps(o.languages),
+                "skill_levels": o.skill_levels,
+                "languages": [language.name for language in o.languages],
             }
             return to_serialize
         except AttributeError:  # pragma: no cover

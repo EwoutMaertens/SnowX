@@ -13,9 +13,13 @@ class Student():
     language: Language
 
     @classmethod
-    def from_dict(self, d):
-        return self(**d)
+    def from_dict(self, student_dict):
+        student = self(**student_dict)
+        student.language = Language[student.language]
+        return student
 
     def to_dict(self):
-        return asdict(self)
+        student_dict = asdict(self)
+        student_dict['language'] = student_dict['language'].name
+        return student_dict
 	

@@ -7,6 +7,8 @@ from uuid import uuid4
 from datetime import datetime
 import unittest
 
+from Lesson.lesson.serializers.lesson_group import json_serial
+
 class TestLessonGroup(unittest.TestCase):
 	def setUp(self) -> None:
 		# Arrange for all tests
@@ -51,10 +53,10 @@ class TestLessonGroup(unittest.TestCase):
 			"student_limit": self.student_limit,
 			"ski_slope_id": self.ski_slope_id,
 			"price": self.price,
-			"language": self.language,
-			"students": self.students,
-			"instructor": self.instructor,
-			"start_times": self.start_times
+			"language": self.language.name,
+			"students": [student.to_dict() for student in self.students],
+			"instructor": self.instructor.to_dict(),
+			"start_times": [json_serial(start_time) for start_time in self.start_times]
 		}
 
 		# Act
@@ -80,10 +82,10 @@ class TestLessonGroup(unittest.TestCase):
 			"student_limit": self.student_limit,
 			"ski_slope_id": self.ski_slope_id,
 			"price": self.price,
-			"language": self.language,
+			"language": self.language.name,
 			"students": [student.to_dict() for student in self.students],
 			"instructor": self.instructor.to_dict(),
-			"start_times": self.start_times
+			"start_times": [json_serial(start_time) for start_time in self.start_times]
 		}
 
 		# Act

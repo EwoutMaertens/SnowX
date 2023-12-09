@@ -24,10 +24,10 @@ def test_serialize_domain_student():
     expected_json = f"""
         {{
             "student_id": "{student_id}",
-            "skill_level": "{skill_level}",
+            "skill_level": {skill_level},
             "booking_id": "{booking_id}",
-            "confirmed": "{confirmed}",
-            "language": "{json.dumps(language)}"
+            "confirmed": {json.dumps(confirmed)},
+            "language": "{language.name}"
         }}
     """
 

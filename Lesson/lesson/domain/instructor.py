@@ -10,8 +10,12 @@ class Instructor():
     languages: List[Language]
 
     @classmethod
-    def from_dict(self, d):
-        return self(**d)
+    def from_dict(self, instructor_dict):
+        instructor = self(**instructor_dict)
+        instructor.languages = [Language[language] for language in instructor.languages]
+        return instructor
 
     def to_dict(self):
-        return asdict(self)
+        instructor_dict = asdict(self)
+        instructor_dict['languages'] = [language.name for language in instructor_dict['languages']]
+        return instructor_dict

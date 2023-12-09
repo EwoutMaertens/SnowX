@@ -35,7 +35,7 @@ class TestStudent(unittest.TestCase):
 			"skill_level": self.skill_level,
 			"booking_id": self.booking_id,
 			"confirmed": self.confirmed,
-			"language": self.language
+			"language": self.language.name
 		}
 
 		# Act
@@ -56,7 +56,7 @@ class TestStudent(unittest.TestCase):
 			"skill_level": self.skill_level,
 			"booking_id": self.booking_id,
 			"confirmed": self.confirmed,
-			"language": self.language
+			"language": self.language.name
 		}
 
 		# Act

@@ -17,14 +17,14 @@ class LessonGroupJsonEncoder(json.JSONEncoder):
         try:
             to_serialize = {
                 "group_id": str(o.group_id),
-                "skill_level": str(o.skill_level),
-                "student_limit": str(o.student_limit),
+                "skill_level": o.skill_level,
+                "student_limit": o.student_limit,
                 "ski_slope_id": str(o.ski_slope_id),
-                "price": str(o.price),
-                "language": json.dumps(o.language),
-                "students": json.dumps(o.students, cls=StudentJsonEncoder),
-                "instructor": json.dumps(o.instructor, cls=InstructorJsonEncoder),
-                "start_times": json.dumps(o.start_times, default=json_serial)
+                "price": o.price,
+                "language": o.language.name,
+                "students": json.loads(json.dumps(o.students, cls=StudentJsonEncoder)),
+                "instructor": json.loads(json.dumps(o.instructor, cls=InstructorJsonEncoder)),
+                "start_times": json.loads(json.dumps(o.start_times, default=json_serial))
             }
             return to_serialize
         except AttributeError:  # pragma: no cover
