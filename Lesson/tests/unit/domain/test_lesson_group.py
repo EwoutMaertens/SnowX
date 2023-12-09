@@ -28,8 +28,8 @@ class TestLessonGroup(unittest.TestCase):
 	def test_create_lesson_group(self):
 		# Act
 		lesson_group = LessonGroup(self.group_id, self.skill_level, self.student_limit,
-							 	   self.ski_slope_id, self.price, self.language, self.students,
-								   self.instructor, self.start_times)
+		self.ski_slope_id, self.price, self.language, self.students,
+		self.instructor, self.start_times)
 
 		# Assert
 		assert lesson_group.group_id == self.group_id
@@ -96,11 +96,11 @@ class TestLessonGroup(unittest.TestCase):
 	def test_compare_lesson_groups(self):
 		# Arrange
 		lesson_group1 = LessonGroup(self.group_id, self.skill_level, self.student_limit,
-							 	    self.ski_slope_id, self.price, self.language, self.students,
-								    self.instructor, self.start_times)
+								    self.ski_slope_id, self.price, self.language, self.students,
+									self.instructor, self.start_times)
 		lesson_group2 = LessonGroup(self.group_id, self.skill_level, self.student_limit,
-							 	    self.ski_slope_id, self.price, self.language, self.students,
-								    self.instructor, self.start_times)
+									self.ski_slope_id, self.price, self.language, self.students,
+									self.instructor, self.start_times)
 
 		# Act & Assert
 		assert lesson_group1 == lesson_group2
