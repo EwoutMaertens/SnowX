@@ -12,8 +12,8 @@ class LessonGroupRepo:
         if filters is None:
             return result
 
-        if "stduent_limit__eq" in filters:
-            result = [r for r in result if r.student_limit == filters["stduent_limit__eq"]]
+        if "student_limit__eq" in filters:
+            result = [r for r in result if r.student_limit == filters["student_limit__eq"]]
 
         if "price__lt" in filters:
             result = [
